@@ -26,7 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ev_main.apps.EvMainConfig'
+    'ev_main.apps.EvMainConfig',
+    'ev_news.apps.EvNewsConfig',
+    'ev_shop.apps.EvShopConfig',
 ]
 
 MIDDLEWARE = [

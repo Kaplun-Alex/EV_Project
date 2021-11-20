@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">-->
+    <link rel="stylesheet" href="{% static 'ev_main/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ev_main/css/fontello.css' %}">
+    <link rel="stylesheet" href="{% static 'ev_main/css/style.css' %}">
+    <title>Alex Kaplun JPJSD</title>
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-end">
+                    <button id="sun" class="btn btn-outline-light"><i id='suntheme' class = "icon-sun"></i></button>
+                </div>
+
+                <div class="col-12">
+                    <img src="{% static 'ev_main/img/face.jpg' %}" alt="alex_img" class="alex_img img-fluid mx-auto d-block"/>
+                </div>
+             </div>
+        </div>
+    </header>
+
+    <section style="flex: 1;">
+        <div class="container" id="centralcont">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="row align-items-center justify-content-center">
+                        <button id='ab_but' type="button" class="btn btn-outline-dark mybtn btn-block vikingfont">About</button>
+                    </div>
+                    <div class="row align-items-center justify-content-center">
+                        <button id='ed_but' type="button" class="btn btn-outline-dark mybtn btn-block vikingfont">Education</button>
+                    </div>
+                    <div class="row align-items-center justify-content-center">
+                        <button id='ex_but' type="button" class="btn btn-outline-dark mybtn btn-block vikingfont">Experience</button>
+                    </div>
+                    <div class="row align-items-center justify-content-center">
+                        <button id='sk_but' type="button" class="btn btn-outline-dark mybtn btn-block vikingfont">Skills</button>
+                    </div>
+                    <div class="row align-items-center justify-content-center">
+                        <button id='cs_but' type="button" class="btn btn-outline-dark mybtn btn-block vikingfont">Courses</button>
+                    </div>
+                    <div class="row align-items-center justify-content-center">
+                        <button id='bk_but' type="button" class="btn btn-outline-dark mybtn btn-block vikingfont">Backgroung</button>
+                    </div>
+                    <div class="row align-items-center justify-content-center">
+                        <button id='ln_but' type="button" class="btn btn-outline-dark mybtn btn-block vikingfont">Lang</button>
+                    </div>
+                    <div class="row align-items-center justify-content-center">
+                        <button id='cn_but' type="button" class="btn btn-outline-dark mybtn btn-block vikingfont">Contact</button>
+                    </div>
+                </div>
+
+                <div class="col-sm-10">
+                    <h5 id="main_info"><img src="{% static 'ev_main/img/JPJSD.png' %}" class="img-fluid mx-auto d-block"></h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                  <a href="https://github.com/Kaplun-Alex?tab=repositories" target="_blank"
+                  class="btn btn-outline-light"><i class = "icon-github-text"></i></a>
+                  <a href="https://www.linkedin.com/in/alex-kaplun-799a3615b/" target="_blank"
+                  class="btn btn-outline-light"><i class = "icon-linkedin-1"></i></a>
+                  <a href="https://www.youtube.com/channel/UCDSYryZr1qBYw-rzRa4h0bw" target="_blank"
+                  class="btn btn-outline-light"><i class = "icon-youtube"></i></a>
+                  <a href="https://www.facebook.com/KaplunOleksiiy" target="_blank"
+                  class="btn btn-outline-light"><i class = "icon-facebook-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="{% static 'ev_main/js/app.js' %}"></script>
+<script src="{% static 'ev_main/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
