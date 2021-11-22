@@ -11,3 +11,4 @@ buttons = {'About': 'About', 'Education': 'Education', 'Experience': 'Experience
 
 def ev_news_main(request):
     return render(request, 'ev_news/news_index.html', buttons)
+
