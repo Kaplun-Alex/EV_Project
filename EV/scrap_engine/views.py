@@ -21,24 +21,27 @@ requests.packages.urllib3.disable_warnings()
 def scrape(request):
     session = requests.Session()
     session.headers = {"User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)"}
-    url = "https://www.firstpost.com/tag/electric-scooter"
+    url = "https://www.ukr.net/"
     content = session.get(url, verify=False).content
     #print('CONTENT', content)
-    soup = BSoup(content, "html.parser")
+    soup = BSoup(content, "lxml")
     print('SOUP', soup)
-    news = soup.find_all('div', {"class": "big-thumb"})
-    #print('NEWS', news)
+    news = soup.find_all('section', {"class": "feed__section"})
+    print('NEWS', news)
     for article in news:
         print('Перебор', article)
         main = article.find_all('a')[0]
+        print(main)
         link = main['href']
         image_src = str(main.find('img')['srcset']).split(" ")[-4]
         title = main['title']
+        '''
         new_headline = Headline()
         new_headline.title = title
         new_headline.url = link
         new_headline.image = image_src
         new_headline.save()
+        '''
     return redirect("../")
 
 
