@@ -21,21 +21,29 @@ requests.packages.urllib3.disable_warnings()
 def scrape(request):
     session = requests.Session()
     session.headers = {"User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)"}
-    url = "https://www.ukr.net/"
+    url = "https://electrek.co/guides/electric-motorcycle/"
     content = session.get(url, verify=False).content
     #print('CONTENT', content)
     soup = BSoup(content, "lxml")
-    print('SOUP', soup)
-    news = soup.find_all('section', {"class": "feed__section"})
-    print('NEWS', news)
+    #print('SOUP', soup)
+    news = soup.find_all('article', {"class": "post-content"})
+    #print('NEWS', news)
     for article in news:
-        print('Перебор', article)
+        print("************************************************************************************************")
+        print(article)
+        print("************************************************************************************************")
+        image_src = str(article.find('img')['srcset']).split(" ")[-4]
+        print('++++++++++++++++++++++++++++++++++++++')
+        print(image_src)
+        print('++++++++++++++++++++++++++++++++++++++')
+        new_headline = Headline()
+        new_headline.image = image_src
+        new_headline.save()
+        '''
         main = article.find_all('a')[0]
-        print(main)
         link = main['href']
         image_src = str(main.find('img')['srcset']).split(" ")[-4]
         title = main['title']
-        '''
         new_headline = Headline()
         new_headline.title = title
         new_headline.url = link
