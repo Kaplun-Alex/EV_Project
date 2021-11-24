@@ -23,41 +23,38 @@ def scrape(request):
     session.headers = {"User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)"}
     url = "https://electrek.co/guides/electric-motorcycle/"
     content = session.get(url, verify=False).content
-    #print('CONTENT', content)
     soup = BSoup(content, "lxml")
-    #print('SOUP', soup)
     news = soup.find_all('article', {"class": "post-content"})
-    #print('NEWS', news)
+    all_title = []
+    list_of_title = Headline.objects.all()
+    for i in list_of_title:
+        all_title.append(i.title)
+    print(all_title)
     for article in news:
-        print("************************************************************************************************")
-        print(article)
-        print("************************************************************************************************")
         image_src = str(article.find('img')['srcset']).split(" ")[-4]
-        print('++++++++++++++++++++++++++++++++++++++')
-        print(image_src)
-        print('++++++++++++++++++++++++++++++++++++++')
-        new_headline = Headline()
-        new_headline.image = image_src
-        new_headline.save()
-        '''
-        main = article.find_all('a')[0]
-        link = main['href']
-        image_src = str(main.find('img')['srcset']).split(" ")[-4]
-        title = main['title']
+        title = article.find('a').getText()
+        link = article.find('a').get("href")
         new_headline = Headline()
         new_headline.title = title
         new_headline.url = link
         new_headline.image = image_src
-        new_headline.save()
-        '''
+        print(type(title))
+
+        if len(all_title) != 0:
+            res = all_title.index(title)
+            if res < 0:
+                new_headline.save()
+                print("Saved")
+            else:
+                print('go to hel')
+        else:
+            new_headline.save()
     return redirect("../")
 
 
 def news_list(request):
-    #print("I'm work dude")
     headlines = Headline.objects.all()[::-1]
     context = {
         'object_list': headlines,
     }
-    #print('Context', context)
     return render(request, "scrap_engine/scrapapp.html", context)
