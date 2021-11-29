@@ -59,7 +59,7 @@ const backMes = "<h2>Electrical and Electronics Engineer:</h2><br>\
                 cnc machining assembly processing, welding(TIG, MIG, MMA), Solidworks design,\
                 EasyEDA design and manufacturing, assembly of metal structures and mechanisms."
 const lnMes = "<h2> Python, JS, ENG(intermediate), UA and others...</h2>"
-const sertMes = "<img src='http://127.0.0.1:8000/static/ev_shop/img/SERT.jpg' class='img-fluid mx-auto d-block'/>"
+const sertMes = "<img src='http://127.0.0.1:8000/static/ev_main/img/SERT.jpg' class='img-fluid mx-auto d-block'/>"
 
 function borderWidth (point){
     [abBut, edBut, exBut, skBut, csBut, bkBut, lnBut, cnBut].map(a => {

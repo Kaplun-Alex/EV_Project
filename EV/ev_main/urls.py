@@ -1,7 +1,6 @@
 from django.urls import path
-from .views import index, port
+from .views import port
 
 urlpatterns = [
-    path('', index, name='main'),
-    path('port/', port, name='port'),
+    path('', port, name='main'),
 ]

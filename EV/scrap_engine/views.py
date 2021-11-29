@@ -29,7 +29,7 @@ def scrape(request):
     list_of_title = Headline.objects.all()
     for i in list_of_title:
         all_title.append(i.title)
-    print(all_title)
+    #print(all_title)
     for article in news:
         image_src = str(article.find('img')['srcset']).split(" ")[-4]
         title = article.find('a').getText()
@@ -38,15 +38,14 @@ def scrape(request):
         new_headline.title = title
         new_headline.url = link
         new_headline.image = image_src
-        print(type(title))
 
         if len(all_title) != 0:
-            res = all_title.index(title)
-            if res < 0:
+            try:
+                res = all_title.index(title)
+                continue
+            except ValueError:
                 new_headline.save()
                 print("Saved")
-            else:
-                print('go to hel')
         else:
             new_headline.save()
     return redirect("../")
