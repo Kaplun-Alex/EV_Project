@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'ev_news.apps.EvNewsConfig',
     'ev_shop.apps.EvShopConfig',
     'scrap_engine.apps.ScrapEngineConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
