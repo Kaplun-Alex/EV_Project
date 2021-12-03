@@ -18,7 +18,7 @@ def scrape(request):
     list_of_title = Headline.objects.all()
     for i in list_of_title:
         all_title.append(i.title)
-    print(all_title)
+    #print(all_title)
     for article in news:
         image_src = str(article.find('img')['srcset']).split(" ")[-4]
         title = article.find('a').getText()
